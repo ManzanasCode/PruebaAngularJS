@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<!------ META ------>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Prueba AngularJS</title>
+<!------ STYLES ------>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<!------ STYLES ------>
+
+</head>
+<body ng-app="MAIN_APP">
+
+<div class="container" ng-controller="MainController">
+    <div class="row">
+        <div class="col-12">
+            <nav class="navbar navbar-dark bg-dark">
+                <a class="navbar-brand mx-auto" href="#">Linio Challenge - Junior Frontend Developer AngularJS</a>
+            </nav>
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-12">
+            <form ng-submit="getRepos()">
+                <div class="form-group">
+                    <label>Github Username</label>
+                    <input type="text" class="form-control" placeholder="Github Username to get her Repos" ng-model="usernameGithub">
+                </div>
+                
+            </form>
+            <div class="form-group">
+                Repos Founded: {{reposFound}}
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-2">
+        
+        <table class="table table-striped table-hover ">
+            <thead>
+                <tr>
+                    <th class="text-center"> ID</th>
+                    <th class="text-center"> Name</th>
+                    <th class="text-center"> Full Name</th>
+                    <th class="text-center"> Link</th>
+                </tr>
+            </thead>
+            <tbody ng-repeat="data in gitHubResponse">
+                <td>{{data.id}}</td>
+                <td>{{data.name}}</td>
+                <td>{{data.full_name}}</td>
+                <td><a href="{{data.html_url}}" target="_blank"> {{data.html_url}} </a></td>
+            </tbody>
+            
+        </table>
+
+    </div>
+</div>
+
+<!------ SCRIPTS ------>
+
+<!-- Jquery 3 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<!-- Angular JS -->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<!-- My JS -->
+<script src="../JS/app.js"></script>
+<!------ SCRIPTS ------>
+</body>
+</html>
